@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+All image:
+<ul>
+    <div th:each="homeImg: ${homeImages}" th:remove="tag">
+        <li  th:text="${homeImg.title}"></li>
+        <li  th:text="${homeImg.description}"></li>
+        <img th:src="@{/image(name=${homeImg.picUrl})}" style="width: 50px"><br>
+        <a th:href="@{/(id=${homeImg.id})}">home page</a>
+    </div>
+
+</ul>
+</body>
+</html>

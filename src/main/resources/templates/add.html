@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+</head>
+<body>
+<a href="/logout" th:if="${username != null}">Logout</a><br>
+Add Home Image:
+<form action="/saveHomeImage" method="post" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Please inpute title"><br>
+    <textarea name="description" placeholder="Please input description"></textarea><br>
+    <input type="file" name="image"/><br>
+    <input type="submit" value="Add ">
+</form>
+<br>
+Add Category:
+<form action="/saveCategory" method="post" enctype="multipart/form-data">
+    <input type="text" name="name" placeholder="Please inpute name"><br>
+    <input type="file" name="image"/><br>
+    <input type="submit" value="Add Category">
+</form>
+<br>
+Add Image
+<form action="/saveImgage" method="post" enctype="multipart/form-data">
+    <input type="text" name="name" placeholder="Please inpute name"><br>
+    <input type="file" name="image"/><br>
+    <select name="category.id" id="book-authors">
+        <option disabled selected value>Assign user</option>
+        <div th:each="category: ${categories}" th:remove="tag">
+
+            <option th:value="${category.id}" th:text="${category.name}"></option>
+        </div>
+
+    </select><br>
+    <input type="submit" value="Add Category">
+</form>
+<a th:href="@{/allHomeImages}">All Home Images</a>
+</body>
+</html>
