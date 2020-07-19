@@ -34,7 +34,7 @@ public class AdminController {
     private final HomeImageService homeImageService;
 
     @PostMapping("/saveHomeImage" )
-    public String saveHomeImage(HomeImage home, @RequestParam("image") MultipartFile file) throws IOException   {
+    public String saveHomeImage(@ModelAttribute HomeImage home, @RequestParam("image") MultipartFile file) throws IOException   {
         String name = System.currentTimeMillis() + "_" + file.getOriginalFilename();
         File img = new File(uploadDir, name);
         file.transferTo(img);
@@ -44,7 +44,7 @@ public class AdminController {
     }
 
     @PostMapping("/saveCategory" )
-    public String saveCategory(Category category,@RequestParam("image") MultipartFile file) throws IOException   {
+    public String saveCategory(@ModelAttribute Category category,@RequestParam("image") MultipartFile file) throws IOException   {
         String name = System.currentTimeMillis() + "_" + file.getOriginalFilename();
         File img = new File(uploadDir, name);
         file.transferTo(img);
@@ -72,7 +72,7 @@ public class AdminController {
     }
 
     @PostMapping("/saveImgage")
-    public String saveImage(Image img1 ,@RequestParam("image") MultipartFile file) throws IOException {
+    public String saveImage(@ModelAttribute Image img1 ,@RequestParam("image") MultipartFile file) throws IOException {
         String name = System.currentTimeMillis() + "_" + file.getOriginalFilename();
         File img = new File(uploadDir, name);
         file.transferTo(img);

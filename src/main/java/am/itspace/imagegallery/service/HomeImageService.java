@@ -3,12 +3,12 @@ package am.itspace.imagegallery.service;
 import am.itspace.imagegallery.model.HomeImage;
 import am.itspace.imagegallery.repository.HomeRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@Service
 @RequiredArgsConstructor
 public class HomeImageService {
     private final HomeRepository homeRepository;

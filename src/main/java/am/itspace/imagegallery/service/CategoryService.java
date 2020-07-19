@@ -7,6 +7,7 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,7 +20,7 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@Service
 @RequiredArgsConstructor
 public class CategoryService {
 
