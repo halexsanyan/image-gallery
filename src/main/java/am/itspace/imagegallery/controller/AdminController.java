@@ -71,7 +71,7 @@ public class AdminController {
         return "allHomeImages";
     }
 
-    @PostMapping("/saveImgage")
+    @PostMapping("/saveImage")
     public String saveImage(@ModelAttribute Image img1 ,@RequestParam("image") MultipartFile file) throws IOException {
         String name = System.currentTimeMillis() + "_" + file.getOriginalFilename();
         File img = new File(uploadDir, name);

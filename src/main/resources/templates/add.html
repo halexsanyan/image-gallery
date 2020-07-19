@@ -11,7 +11,7 @@ Add Home Image:
     <input type="text" name="title" placeholder="Please inpute title"><br>
     <textarea name="description" placeholder="Please input description"></textarea><br>
     <input type="file" name="image"/><br>
-    <input type="submit" value="Add ">
+    <input type="submit" value="Add">
 </form>
 <br>
 Add Category:
@@ -22,10 +22,10 @@ Add Category:
 </form>
 <br>
 Add Image
-<form action="/saveImgage" method="post" enctype="multipart/form-data">
+<form action="/saveImage" method="post" enctype="multipart/form-data">
     <input type="text" name="name" placeholder="Please inpute name"><br>
     <input type="file" name="image"/><br>
-    <select name="category.id" id="book-authors">
+    <select name="category.id">
         <option disabled selected value>Assign user</option>
         <div th:each="category: ${categories}" th:remove="tag">
 
@@ -33,7 +33,7 @@ Add Image
         </div>
 
     </select><br>
-    <input type="submit" value="Add Category">
+    <input type="submit" value="Add Image">
 </form>
 <a th:href="@{/allHomeImages}">All Home Images</a>
 </body>
