@@ -40,7 +40,7 @@ public class AdminController {
         file.transferTo(img);
         home.setPicUrl(name);
         homeImageService.save(home);
-        return "redirect:add";
+        return "redirect:admin";
     }
 
     @PostMapping("/saveCategory" )
@@ -50,10 +50,10 @@ public class AdminController {
         file.transferTo(img);
         category.setPicUrl(name);
         categoryService.save(category);
-        return "redirect:add";
+        return "redirect:admin";
     }
 
-    @GetMapping("/add")
+    @GetMapping("/admin")
     public String authorPage(@AuthenticationPrincipal Principal principal, ModelMap modelMap) {
         String username = null;
         if (principal != null) {
@@ -62,7 +62,7 @@ public class AdminController {
         List<Category> allCategory = categoryService.categoryFindAll();
         modelMap.addAttribute("categories", allCategory);
         modelMap.addAttribute("username", username);
-        return "add";
+        return "admin";
     }
     @GetMapping("/allHomeImages")
     public String allHomeImagesPage(ModelMap modelMap) {
@@ -78,7 +78,7 @@ public class AdminController {
         file.transferTo(img);
         img1.setPicUrl(name);
         imageService.save(img1);
-        return "redirect:/add";
+        return "redirect:/admin";
     }
 
 

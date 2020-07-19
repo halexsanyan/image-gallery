@@ -22,14 +22,19 @@ public class MainController {
     private final CategoryService categoryService;
     private final ImageService imageService;
     private final HomeImageService homeImageService;
+    private int id = 1;
 
     @GetMapping("/")
-    public String homePage(@RequestParam("id") int id, ModelMap modelMap) {
-        List<Category> all = categoryService.categoryFindAll();
-            Optional<HomeImage> one = homeImageService.findeById(id);
-            if (!one.isPresent()) {
-                return "redirect:/";
-            }
+    public String homePage(@RequestParam(name = "id", required = false) Integer newId, ModelMap modelMap) {
+        if (newId != null && newId != 0){
+            this.id=newId;
+            return "admin";
+        }
+            List<Category> all = categoryService.categoryFindAll();
+        Optional<HomeImage> one = homeImageService.findeById(this.id);
+        if (!one.isPresent()) {
+            return "redirect:/";
+        }
 
         modelMap.addAttribute("categories", all);
         modelMap.addAttribute("himeImage", one.get());
